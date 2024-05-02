@@ -72,7 +72,7 @@ export default function SudokuAll() {
 
         return(cubeIndex);
     }
-    const MapCube = (sudoku , cubeIndex, value) => {
+    const ValidCube = (sudoku , cubeIndex, value) => {
         let conflict = []; //tengo que hacer un arreglo más arriba, de forma de tirarle este en un push si false.
         let counter = 0;
         for(let j=cubeIndex[1]; j<cubeIndex[1]+3; j++){
@@ -85,6 +85,7 @@ export default function SudokuAll() {
         }
 
         if(counter > 1){
+            //debería hacer un .push(conflict) en un arreglo de nivel superior
             return false;
         }else{
             return true;
