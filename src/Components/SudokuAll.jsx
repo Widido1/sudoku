@@ -27,19 +27,19 @@ export default function SudokuAll() {
     const mapCube = () => {
         console.log("Map Cube!");
     }
-    const arrMixer = () => {
+    const arrMixer = (arr) => {
         console.log("ArrMixer!");
-        let arr = [1,2,3,4,5,6,7,8,9];
-        let last_index = arr.length-1;
+        let arr1 = [...arr];
+        let last_index = arr1.length-1;
         while(last_index > 0){
-            let rand_index = Math.floor(Math.random()*arr.length);
-            let temp = arr[last_index];
-            arr[last_index] = arr[rand_index];
-            arr[rand_index] = temp;
+            let rand_index = Math.floor(Math.random()*arr1.length);
+            let temp = arr1[last_index];
+            arr1[last_index] = arr1[rand_index];
+            arr1[rand_index] = temp;
             last_index --;
         }
-        console.log(arr);
-        return(arr);
+        console.log(arr1);
+        return(arr1);
     }
 
     return(
