@@ -91,6 +91,38 @@ export default function SudokuAll() {
             return true;
         }
     }
+    const ValidRow = (sudoku, index, value) => {
+        let conflict = [];
+        let y = index[1]
+        let counter = 0;
+        for(let i=0; i<sudoku[i] ; i++){
+            if(value == sudoku[i][y]){
+                conflict.push(sudoku[i][y]);
+                counter++;
+            }
+        }
+        if(counter > 1){
+            return(false);
+        }else{
+            return(true);
+        }
+    }
+    const ValidColumn = (sudoku, index, value) => {
+        let conflict = [];
+        let x = index[0]
+        let counter = 0;
+        for(let i=0; i<sudoku[i] ; i++){
+            if(value == sudoku[x][i]){
+                conflict.push(sudoku[x][i]);
+                counter++;
+            }
+        }
+        if(counter > 1){
+            return(false);
+        }else{
+            return(true);
+        }
+    }
     const arrMixer = (arr) => {
         console.log("ArrMixer!");
         let arr1 = [...arr];
