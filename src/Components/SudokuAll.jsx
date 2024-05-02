@@ -72,6 +72,24 @@ export default function SudokuAll() {
 
         return(cubeIndex);
     }
+    const MapCube = (sudoku , cubeIndex, value) => {
+        let conflict = []; //tengo que hacer un arreglo más arriba, de forma de tirarle este en un push si false.
+        let counter = 0;
+        for(let j=cubeIndex[1]; j<cubeIndex[1]+3; j++){
+            for(let i=cubeIndex[0]; i<cubeIndex[0]+3; i++){
+                if(value == sudoku[i][j]){
+                    conflict.push([i,j]);
+                    counter++;
+                }
+            }
+        }
+
+        if(counter > 1){
+            return false;
+        }else{
+            return true;
+        }
+    }
     const arrMixer = (arr) => {
         console.log("ArrMixer!");
         let arr1 = [...arr];
