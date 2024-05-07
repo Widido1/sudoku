@@ -1,8 +1,8 @@
 
-export default function Button01() {
+export default function Button01(props) {
 
     return(
-        <button>
+        <button onClick={() => props.SudokuGenerate(props.Nbox)}>
             button01
         </button>
     );

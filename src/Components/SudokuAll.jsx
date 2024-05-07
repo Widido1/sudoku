@@ -17,12 +17,51 @@ export default function SudokuAll() {
             
         ]
     );
-    const SudokuGenerate = () => {
-        console.log("Sudoku Generate!");
+    const SudokuGenerate = (sudoku) => {
+        let arr = [1,2,3,4,5,6,7,8,9];
+        let sudokuMix = arrMixer(arr);
+        let valid = false;
+        sudoku.map((y, iy) => {return (y.map((x, ix)=>{
+            let fail = 0;
+            valid = false;
+            while(valid == false){
+
+                if(ValidNumber(sudoku, ix, iy, sudokuMix[ix])){
+                    console.log("Valid Number: "+sudokuMix[ix]+", to: "+iy+","+ix)
+                    sudoku[iy][ix] = sudokuMix[ix];
+                    valid = true;
+                }else{
+                    console.log("fail number: "+sudokuMix[ix]);
+                    sudokuMix = arrRemixer(sudokuMix, ix);
+                    console.log(sudokuMix);
+                    fail++;
+                }
+                if(fail > 9){console.log("fail to find the correct number in: " + iy + ix); valid = true;}
+            }
+
+
+        }))});
+        console.log(sudoku);
+        setNbox(sudoku);
+
+
     }
 
     const ValidSudoku = () => {
         console.log("Valid Sudoku!");
+    }
+    const ValidNumber = (sudoku, x, y, value) => {
+        let cubeI = indexCube(x,y);
+        let cube = ValidCube(sudoku, cubeI, value);
+        let column = ValidColumn(sudoku, x, value);
+        let row = ValidRow(sudoku, y, value);
+        console.log("Cube: "+cube+", Column: "+column+", Row: "+row);
+        if(cube == true && column == true && row == true){
+            return(true);
+        }else{
+            console.log("Numero invalido: " + value);
+            return(false);
+        }
     }
     const indexCube = (x, y) => {
         console.log("Map Cube!");
@@ -78,7 +117,7 @@ export default function SudokuAll() {
         for(let j=cubeIndex[1]; j<cubeIndex[1]+3; j++){
             for(let i=cubeIndex[0]; i<cubeIndex[0]+3; i++){
                 if(value == sudoku[i][j]){
-                    conflict.push([i,j]);
+                    //conflict.push([i,j]);
                     counter++;
                 }
             }
@@ -91,13 +130,13 @@ export default function SudokuAll() {
             return true;
         }
     }
-    const ValidRow = (sudoku, index, value) => {
+    const ValidRow = (sudoku, y1, value) => {
         let conflict = [];
-        let y = index[1]
+        let y = y1;
         let counter = 0;
         for(let i=0; i<sudoku[i] ; i++){
             if(value == sudoku[i][y]){
-                conflict.push(sudoku[i][y]);
+                //conflict.push(sudoku[i][y]);
                 counter++;
             }
         }
@@ -107,13 +146,13 @@ export default function SudokuAll() {
             return(true);
         }
     }
-    const ValidColumn = (sudoku, index, value) => {
+    const ValidColumn = (sudoku, x1, value) => {
         let conflict = [];
-        let x = index[0]
+        let x = x1;
         let counter = 0;
         for(let i=0; i<sudoku[i] ; i++){
             if(value == sudoku[x][i]){
-                conflict.push(sudoku[x][i]);
+                //conflict.push(sudoku[x][i]);
                 counter++;
             }
         }
@@ -137,11 +176,25 @@ export default function SudokuAll() {
         console.log(arr1);
         return(arr1);
     }
+    const arrRemixer = (arr, i) =>{
+        let arr1 = [...arr.slice(0,i)];
+        let temp = arr[i];
+        let result = []; let arr2 = [];
+        if(i < arr.length - 1){
+            arr2 = [...arr.slice(i+1)];
+            result = arr1.concat([...arr2, temp]);
+        }else{
+            arr2 = [...arr.slice(i)];
+            result = arr1.concat([...arr2, temp]);
+        }
+        return result
+
+    }
 
     return(
         <div>
-            <SudokuBox Nbox={Nbox}/>
-            <Button01/>
+            <SudokuBox Nbox={Nbox} />
+            <Button01 SudokuGenerate={SudokuGenerate} Nbox={Nbox}/>
         </div>
     );
 }
