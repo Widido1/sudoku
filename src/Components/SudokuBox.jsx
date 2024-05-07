@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 
 export default function SudokuBox(props){
-    
+
     return(
         <div id= "SudokuBox">
             {props.SudokuMap()}

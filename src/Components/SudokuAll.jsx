@@ -42,7 +42,7 @@ export default function SudokuAll() {
 
         }))});
         console.log(sudoku);
-        setNbox(sudoku);
+        setNbox([...sudoku]);
 
 
     }
@@ -198,8 +198,9 @@ export default function SudokuAll() {
         
     }
     return(
-        <div>
-            <SudokuBox Nbox={Nbox} SudokuMap={SudokuMap}/>
+        <div id= "SudokuBox">
+            {/*<SudokuBox Nbox={Nbox} SudokuMap={SudokuMap}/>*/}
+            {Nbox.map((x, ix) => { return(x.map((y, iy)=>{return(<div className ="Snumber" value={Nbox[ix][iy]} key={ix + "_" + iy}>{Nbox[ix][iy]}</div>)}))})}
             <Button01 SudokuGenerate={SudokuGenerate} Nbox={Nbox}/>
         </div>
     );
