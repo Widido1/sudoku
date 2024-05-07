@@ -4,7 +4,8 @@ export default function SudokuBox(props){
     
     return(
         <div id= "SudokuBox">
-            {props.Nbox.map((x, ix) => { return(x.map((y, iy)=>{return(<div className ="Snumber" value={props.Nbox[ix][iy]} key={ix + "_" + iy}>{props.Nbox[ix][iy]}</div>)}))})}
+            {props.SudokuMap()}
+            {/*props.Nbox.map((x, ix) => { return(x.map((y, iy)=>{return(<div className ="Snumber" value={props.Nbox[ix][iy]} key={ix + "_" + iy}>{props.Nbox[ix][iy]}</div>)}))})*/}
             {/*
             <SudokuSquare id="1a"/><SudokuSquare id="1b"/><SudokuSquare id="1c"/> <SudokuSquare id="1d"/><SudokuSquare id="1e"/><SudokuSquare id="1f"/> <SudokuSquare id="1g"/><SudokuSquare id="1h"/><SudokuSquare id="1i"/>
             <SudokuSquare id="2a"/><SudokuSquare id="2b"/><SudokuSquare id="2c"/> <SudokuSquare id="2d"/><SudokuSquare id="2e"/><SudokuSquare id="2f"/> <SudokuSquare id="2g"/><SudokuSquare id="2h"/><SudokuSquare id="2i"/>

@@ -190,10 +190,16 @@ export default function SudokuAll() {
         return result
 
     }
-
+    const SudokuMap = () =>{
+       
+       return(
+        Nbox.map((x, ix) => { return(x.map((y, iy)=>{return(<div className ="Snumber" value={Nbox[ix][iy]} key={ix + "_" + iy}>{Nbox[ix][iy]}</div>)}))})
+       );
+        
+    }
     return(
         <div>
-            <SudokuBox Nbox={Nbox} />
+            <SudokuBox Nbox={Nbox} SudokuMap={SudokuMap}/>
             <Button01 SudokuGenerate={SudokuGenerate} Nbox={Nbox}/>
         </div>
     );
