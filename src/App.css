@@ -7,7 +7,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(25, 26, 29);
+    background-color: #191a1d;
 }
 
 #ButtonBox{
@@ -17,7 +17,7 @@ body{
 }
 
 button{
-    background-color: rgb(17, 22, 46);
+    background-color: #11162e;
     color: rgb(255, 192, 19);
     padding: 15px;
 }
@@ -25,9 +25,10 @@ button{
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     gap: 10px;
-    background-color: rgb(212, 157, 38);
+    background-color: #d49d26;
     width: 600px;
     padding: 15px;
+    border: 2px solid rgb(212, 157, 38);
 }
 .Snumber{
     border: 2px solid rgb(18, 43, 187);
