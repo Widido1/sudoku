@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button01 from "./Button01";
 import SudokuBox from "./SudokuBox";
 import Button02 from "./Button02";
@@ -6,6 +6,7 @@ import Button02 from "./Button02";
 export default function SudokuAll() {
     const [Nbox, setNbox] = useState([]);
     const [Sudoku, setSudoku] = useState([]);
+    
     const SudokuGenerate = () => {
         let arr = [1,2,3,4,5,6,7,8,9];
         let sudokuMix = arrMixer(arr);
@@ -55,6 +56,9 @@ export default function SudokuAll() {
         });
         setSudoku([...sudoku2]);
     }
+    useEffect(()=>{
+        SudokuGenerate();
+    },[]);
 
     const ResolveSudoku = () => {
         setSudoku([...Nbox]);
