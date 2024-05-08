@@ -15,12 +15,12 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
       const allcolors = [
-        ["#F1B32E", "#11162e", "#000000"] , //Orange and Blue
-        ["#FC7979", "#19021E", "#000000"] , //Salmon and violet
-        ["#FED4E3", "#1C0029", "#000000"] , //Pink and Violet
-        ["#F7FB4E", "#11162e", "#000000"] , //Yellow and Blue
-        ["#9FFBFA", "#11162e", "#000000"] , //Light Blue and Blue
-        ["#FBE69F", "#2C2200", "#000000"] , //Light Blue and Blue
+        ["#F1B32E", "#11162e"] , //Orange and Blue
+        ["#FC7979", "#19021E"] , //Salmon and violet
+        ["#FED4E3", "#1C0029"] , //Pink and Violet
+        ["#F7FB4E", "#11162e"] , //Yellow and Blue
+        ["#9FFBFA", "#11162e"] , //Light Blue and Blue
+        ["#FBE69F", "#2C2200"] , //Light Blue and Blue
 
 
       ];
@@ -30,7 +30,6 @@
         $("#GenerateButton").click(function(event) {
           event.preventDefault();
           let color = allcolors[Math.floor(Math.random() * allcolors.length)];
-          $("body").css("background-color", color[2]);
           $("button").css("background-color", color[1]);
           $("button").css("color", color[0]);
           $(".Snumber").css("color", color[1]);
