@@ -195,11 +195,18 @@ export default function SudokuAll() {
 
     }
     return(
-        <div id= "SudokuBox">
-            {/*<SudokuBox Nbox={Nbox} SudokuMap={SudokuMap}/>*/}
-            {Sudoku.map((x, ix) => { return(x.map((y, iy)=>{return(<div className ="Snumber" value={Sudoku[ix][iy]} key={ix + "_" + iy}>{Sudoku[ix][iy]}</div>)}))})}
-            <Button01 SudokuGenerate={SudokuGenerate} Nbox={Nbox}/>
-            <Button02 ResolveSudoku={ResolveSudoku}/>
+        <div id="SudokuWrap">
+            <div id= "SudokuBox">
+                {/*<SudokuBox Nbox={Nbox} SudokuMap={SudokuMap}/>*/}
+                {Sudoku.map((x, ix) => { return(x.map((y, iy)=>{return(<div className ="Snumber" value={Sudoku[ix][iy]} key={ix + "_" + iy}>{Sudoku[ix][iy]}</div>)}))})}
+
+            </div>
+            <div id="ButtonBox">
+                <Button01 SudokuGenerate={SudokuGenerate} Nbox={Nbox}/>
+                <Button02 ResolveSudoku={ResolveSudoku}/>
+            </div>
+
         </div>
+
     );
 }
