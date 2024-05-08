@@ -5,15 +5,15 @@ import SudokuBox from "./SudokuBox";
 export default function SudokuAll() {
     const [Nbox, setNbox] = useState(
         [
-            [1,1,1,1,1,1,1,1,1],
-            [2,2,2,2,2,2,2,2,2],
-            [3,3,3,3,3,3,3,3,3],
-            [4,4,4,4,4,4,4,4,4],
-            [5,5,5,5,5,5,5,5,5],
-            [6,6,6,6,6,6,6,6,6],
-            [7,7,7,7,7,7,7,7,7],
-            [8,8,8,8,8,8,8,8,8],
-            [9,9,9,9,9,9,9,9,9]
+            [10,10,10,10,10,10,10,10,10],
+            [10,10,10,10,10,10,10,10,10],
+            [10,10,10,10,10,10,10,10,10],
+            [10,10,10,10,10,10,10,10,10],
+            [10,10,10,10,10,10,10,10,10],
+            [10,10,10,10,10,10,10,10,10],
+            [10,10,10,10,10,10,10,10,10],
+            [10,10,10,10,10,10,10,10,10],
+            [10,10,10,10,10,10,10,10,10]
             
         ]
     );
@@ -27,7 +27,7 @@ export default function SudokuAll() {
             while(valid == false){
 
                 if(ValidNumber(sudoku, ix, iy, sudokuMix[ix])){
-                    console.log("Valid Number: "+sudokuMix[ix]+", to: "+iy+","+ix)
+                    console.log("Valid Number: "+sudokuMix[ix]+", to: "+iy+","+ix);
                     sudoku[iy][ix] = sudokuMix[ix];
                     valid = true;
                 }else{
@@ -43,6 +43,7 @@ export default function SudokuAll() {
         }))});
         console.log(sudoku);
         setNbox([...sudoku]);
+         
 
 
     }
@@ -116,47 +117,47 @@ export default function SudokuAll() {
         let counter = 0;
         for(let j=cubeIndex[1]; j<cubeIndex[1]+3; j++){
             for(let i=cubeIndex[0]; i<cubeIndex[0]+3; i++){
-                if(value == sudoku[i][j]){
+                if(value == sudoku[j][i]){
                     //conflict.push([i,j]);
                     counter++;
                 }
             }
         }
 
-        if(counter > 1){
+        if(counter > 0){
             //debería hacer un .push(conflict) en un arreglo de nivel superior
             return false;
         }else{
             return true;
         }
     }
-    const ValidRow = (sudoku, y1, value) => {
+    const ValidRow = (sudoku, col, value) => {
         let conflict = [];
-        let y = y1;
+        let y = col;
         let counter = 0;
-        for(let i=0; i<sudoku[i] ; i++){
-            if(value == sudoku[i][y]){
+        for(let i=0; i<sudoku[y].length ; i++){
+            if(value == sudoku[y][i]){
                 //conflict.push(sudoku[i][y]);
                 counter++;
             }
         }
-        if(counter > 1){
+        if(counter > 0){
             return(false);
         }else{
             return(true);
         }
     }
-    const ValidColumn = (sudoku, x1, value) => {
+    const ValidColumn = (sudoku, row, value) => {
         let conflict = [];
-        let x = x1;
+        let x = row;
         let counter = 0;
-        for(let i=0; i<sudoku[i] ; i++){
-            if(value == sudoku[x][i]){
+        for(let i=0; i<sudoku.length ; i++){
+            if(value == sudoku[i][x]){
                 //conflict.push(sudoku[x][i]);
                 counter++;
             }
         }
-        if(counter > 1){
+        if(counter > 0){
             return(false);
         }else{
             return(true);
