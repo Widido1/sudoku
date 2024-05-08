@@ -48,7 +48,7 @@ export default function SudokuAll() {
         sudoku2.map((y, yi) => {
             count = 0;
             sudokuMix = arrMixer(arr);
-            while(count < 4){
+            while(count < 5){
                 index = sudokuMix[count];
                 y[index] = "";
                 count++;
