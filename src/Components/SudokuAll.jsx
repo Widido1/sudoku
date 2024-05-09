@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Button01 from "./Button01";
-import SudokuBox from "./SudokuBox";
 import Button02 from "./Button02";
 
 export default function SudokuAll() {
