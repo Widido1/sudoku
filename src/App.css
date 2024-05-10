@@ -24,9 +24,6 @@ button{
     padding: 15px;
 }
 
-button:hover{
-    border: 2px solid #000000;
-}
 
 #SudokuBox{
     display: grid;
@@ -41,7 +38,6 @@ button:hover{
     border: 2px solid #F1B32E;
 }
 .Snumber{
-    border: 2px solid #F1B32E;
     width: 50px;
     height: 50px;
     justify-content: center;
@@ -51,7 +47,6 @@ button:hover{
     color: #11162e
 }
 input{
-    
     width: 50px;
     height: 50px;
     justify-content: center;
