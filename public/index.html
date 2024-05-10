@@ -27,7 +27,7 @@
       
       $(document).ready(function() {
         
-        $("#GenerateButton").click(function(event) {
+        $("#GenerateButton").click( function(event) {
           event.preventDefault();
           let color = allcolors[Math.floor(Math.random() * allcolors.length)];
           $("button").css("background-color", color[1]);
@@ -39,6 +39,7 @@
           $("#SudokuBox").css("background-color", color[1]);
           $("#SudokuBox").css("color",color[0]);
           $("#SudokuBox").css("border-color", color[0]);
+
         });
       });
     </script>

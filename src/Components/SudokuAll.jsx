@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Button01 from "./Button01";
 import Button02 from "./Button02";
+import Snumber from "./Snumber";
 
 export default function SudokuAll() {
     const [Nbox, setNbox] = useState([]);
@@ -138,7 +139,6 @@ export default function SudokuAll() {
         }
     }
     const ValidRow = (sudoku, col, value) => {
-        let conflict = [];
         let y = col;
         let counter = 0;
         for(let i=0; i<sudoku[y].length ; i++){
@@ -153,7 +153,6 @@ export default function SudokuAll() {
         }
     }
     const ValidColumn = (sudoku, row, value) => {
-        let conflict = [];
         let x = row;
         let counter = 0;
         for(let i=0; i<sudoku.length ; i++){
@@ -197,7 +196,9 @@ export default function SudokuAll() {
         <div id="SudokuWrap">
             <div id= "SudokuBox">
                 {/*<SudokuBox Nbox={Nbox} SudokuMap={SudokuMap}/>*/}
-                {Sudoku.map((x, ix) => { return(x.map((y, iy)=>{return(<div className ="Snumber" value={Sudoku[ix][iy]} key={ix + "_" + iy}>{Sudoku[ix][iy]}</div>)}))})}
+                {/*Sudoku.map((x, ix) => { return(x.map((y, iy)=>{return(<div className ="Snumber" value={Sudoku[ix][iy]} key={ix + "_" + iy}>{Sudoku[ix][iy]}</div>)}))})*/}
+                {Sudoku.map((x, ix) => { return(x.map((y, iy)=>{return(<Snumber value={Sudoku[ix][iy]} key={ix + "_" + iy}/>)}))})}
+
 
             </div>
             <div id="ButtonBox">
