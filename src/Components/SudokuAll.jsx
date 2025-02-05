@@ -24,11 +24,11 @@ export default function SudokuAll() {
             [10,10,10,10,10,10,10,10,10]
             
         ]
-        sudoku1.map((y, iy) => {return (y.map((x, ix)=>{
+        sudoku1.map((y, iy) => {return (y.map((x, ix) => {
             //esta es la funcion que recorre el sudoku entero
             let fail = 0;
             valid = false; //mientras el sudoku no sea valido va a seguir probando numeros
-            while(valid == false){
+            while(valid === false){
                 //usa ValidNumber() para saber si el numero es valido, sino, usa ArrRemixer() y cuenta el fallo
                 if(ValidNumber(sudoku1, ix, iy, sudokuMix[ix])){
                     sudoku1[iy][ix] = sudokuMix[ix];
@@ -39,6 +39,7 @@ export default function SudokuAll() {
                 }
                 if(fail > 9){valid = true;} //si los prueba a todos sale del while, esto es solo para testeo
             }
+            return fail //ignore, only to erase the warning
         }))});
         setNbox([...sudoku1]); // entrega el sudoku armado a Nbox (caja de numeros)
         let sudoku2 = sudoku1.map((x)=>{
@@ -57,12 +58,14 @@ export default function SudokuAll() {
                 y[index] = "";
                 count++;
             }
+            return count //ignore, only to erase the warning
         });
         setSudoku([...sudoku2]); //convierte sudoku2 en el nuevo sudoku que se le muestra al usuario
     }
     useEffect(()=>{
         //genera el sudoku al cargar la pagina
         SudokuGenerate();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     const ResolveSudoku = () => {
@@ -79,7 +82,7 @@ export default function SudokuAll() {
         let cube = ValidCube(sudoku, cubeI, value);
         let column = ValidColumn(sudoku, x, value);
         let row = ValidRow(sudoku, y, value);
-        if(cube == true && column == true && row == true){
+        if(cube === true && column === true && row === true){
             return(true);
         }else{
             return(false);
@@ -129,6 +132,8 @@ export default function SudokuAll() {
             cubeIndex = [3,6]; break;
             case("i"):
             cubeIndex = [6,6]; break;
+            default:
+                break;
         }
         // now we have the index which the cube begins, to map the cube correctly
 
@@ -140,7 +145,7 @@ export default function SudokuAll() {
         let counter = 0;
         for(let j=cubeIndex[1]; j<cubeIndex[1]+3; j++){
             for(let i=cubeIndex[0]; i<cubeIndex[0]+3; i++){
-                if(value == sudoku[j][i]){
+                if(value === sudoku[j][i]){
                     //solamente si el valor es distinto a los valores de todos los cuadrantes, es valido
                     counter++;
                 }
@@ -159,7 +164,7 @@ export default function SudokuAll() {
         let y = col;
         let counter = 0;
         for(let i=0; i<sudoku[y].length ; i++){
-            if(value == sudoku[y][i]){
+            if(value === sudoku[y][i]){
                 counter++;
             }
         }
@@ -176,7 +181,7 @@ export default function SudokuAll() {
         let x = row;
         let counter = 0;
         for(let i=0; i<sudoku.length ; i++){
-            if(value == sudoku[i][x]){
+            if(value === sudoku[i][x]){
                 counter++;
             }
         }

@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
-
 
 export default function Snumber(props){
 
-    if(props.value == ""){
+    if(props.value === ""){
         return(
             <div className="Snumber">
                 <input type="number" min="1" max="9" step="1"/>

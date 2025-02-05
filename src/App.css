@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    border: 0;
+    padding: 0;
 }
 
 body{
@@ -38,27 +40,39 @@ button{
     border: 2px solid #F1B32E;
 }
 .Snumber{
+    display: grid;
     width: 50px;
     height: 50px;
-    justify-content: center;
+    place-content: center;
+    place-self: center;
     text-align: center;
     font-size: 25px;
     background-color: #F1B32E;
-    color: #11162e
+    color: #11162e;
+    padding: 0;
+    margin: 0;
 }
 input{
+    display: grid;
+    place-content: center;
+    place-self: center;
+    position: relative;
     width: 50px;
     height: 50px;
     justify-content: center;
     text-align: center;
     font-size: 25px;
-    color: #000000;
     background: transparent;
     font-style: italic;
+    padding: 0;
+    margin: 0;
 }
 input:focus{
     outline: 2px solid #c8ff00;
-    color: #000000;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 
 @media only screen and (max-width: 600px) {
